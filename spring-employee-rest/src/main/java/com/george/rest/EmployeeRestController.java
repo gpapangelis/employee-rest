@@ -3,6 +3,7 @@ package com.george.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -86,5 +87,32 @@ public class EmployeeRestController {
 		return "Deleted employee with id -" +employeeId;
 	}
 	
+	/*
+		@GetMapping("/employeesByDep/{deptId}")
+		public Employee getEmployeeByDep(@PathVariable int deptId) {
+			
+			Employee theEmployee = employeeService.getEmployeeByDep(deptId);
+			
+			
+			
+			return theEmployee;
+		}
+		
+		*/
+	
+	
+		@GetMapping("employees/listByDep/{dep}")
+		public List<Employee> listEmployeesByDep(Model theModel, @PathVariable("dep") int dep) {
+			
+			// get student from the service
+			List<Employee> theEmployees = employeeService.getEmployeesByDep(dep);
+			
+			
+			//add the students to the model
+			theModel.addAttribute("employees" , theEmployees);
+					
+			return theEmployees;
+			
+		}
 	
 }
