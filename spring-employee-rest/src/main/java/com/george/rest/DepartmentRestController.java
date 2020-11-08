@@ -3,6 +3,7 @@ package com.george.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,6 +43,20 @@ public class DepartmentRestController {
 		}
 		
 		return theDepartment;
+	}
+	
+	@GetMapping("/departments/listByLoc/{loc}")
+	public List<Department> listDepartmentssByLoc(Model theModel, @PathVariable("loc") int loc) {
+		
+		// get student from the service
+		List<Department> theDepartments = departmentService.getDepartmentsByLoc(loc);
+		
+		
+		//add the students to the model
+		theModel.addAttribute("departments" , theDepartments);
+				
+		return theDepartments;
+		
 	}
 	
 }

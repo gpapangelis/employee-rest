@@ -57,4 +57,10 @@ public class DepartmentServiceImpl implements DepartmentService {
         return departmentDAO.searchDepartments(theDepartmentName);
     }
 
+	@Override
+	@Transactional
+	public List<Department> getDepartmentsByLoc(int loc) {
+		return departmentDAO.getDepartmentsByLoc(loc);
+	}
+	
 }

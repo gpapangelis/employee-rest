@@ -39,5 +39,19 @@
   				</ul>
 </div>
 
+<hr>
+
+<div class="dropdown">
+  		<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Departments by Location
+  			<span class="caret"></span></button>
+  				<ul class="dropdown-menu">
+					<li><a href="${pageContext.request.contextPath}/api/departments/listByLoc/1"> Location 1 </a></li>
+					<li><a href="${pageContext.request.contextPath}/api/departments/listByLoc/2"> Location 2 </a></li>
+					 <li><a href="${pageContext.request.contextPath}/api/departments/listByLoc/3"> Location 3 </a></li>
+					 <li><a href="${pageContext.request.contextPath}/api/departments/listByLoc/4"> Location 4 </a></li>
+					 <li><a href="${pageContext.request.contextPath}/api/departments/listByLoc/5"> Location 5 </a></li>
+  				</ul>
+</div>
+
 </body>
 </html>

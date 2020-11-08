@@ -15,4 +15,6 @@ public interface DepartmentService {
 	public void deleteDepartment(int theId);
 	
 	public List<Department> searchDepartments(String theDepartmentName);
+	
+	public List<Department> getDepartmentsByLoc(int loc);
 }
